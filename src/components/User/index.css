@@ -1,0 +1,52 @@
+.user-image__container {
+    height: 180px;
+    width: 180px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+
+.user-image__container::before,
+.user-image__container::after {
+    content: "";
+    position: absolute;
+    inset: -0.2rem;
+    z-index: 0;
+    background: conic-gradient(
+            from var(--gradient-angle),
+            var(--clr-2) 6%,
+            var(--clr-4) 60%,
+            var(--clr-5) 90%,
+            var(--clr-4) 60%,
+            var(--clr-2) 6%
+            );
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+}
+
+.user-image__container::after {
+    filter: blur(3.5rem);
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+
+.user__image{
+    width: inherit;
+    height: inherit;
+    clip-path: circle(49% at 50% 50%);
+}

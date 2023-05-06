@@ -1,34 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Container, Grid, Stack } from '@mui/material'
+import { Search } from './components/Search'
+import { RepoInformation } from './components/RepoInformation'
+import { CircleButtonIcon } from './components/CircleButtonIcon'
+import User from './components/User'
+import { Detail } from './components/Detail'
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LanguageIcon from '@mui/icons-material/Language';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Container maxWidth="sm" style={{ padding: '2rem' }} >
+      <Grid container
+        spacing={5}
+        alignItems='center'
+        alignContent='center'
+        justifyContent='center'
+      >
+        <Grid item xs={12}>
+          <Search />
+        </Grid>
+        <Grid item xs={12}>
+          <Stack alignItems='center'>
+            <User />
+          </Stack>
+        </Grid>
+        <Grid item>
+          <Detail />
+        </Grid>
+        <Grid item>
+          <Stack direction='row' spacing={5}>
+            <RepoInformation />
+            <RepoInformation />
+            <RepoInformation />
+          </Stack>
+        </Grid>
+        <Grid item>
+          <Stack direction='row' spacing={3}>
+            <CircleButtonIcon>
+                <GitHubIcon fontSize='inherit' />
+            </CircleButtonIcon>
+            <CircleButtonIcon>
+                <LanguageIcon fontSize='inherit' />
+            </CircleButtonIcon>
+            <CircleButtonIcon>
+                <LocationOnIcon fontSize='inherit' />
+            </CircleButtonIcon>
+            <CircleButtonIcon>
+                <TwitterIcon fontSize='inherit' />
+            </CircleButtonIcon>
+          </Stack>
+        </Grid>
+      </Grid>
+    </Container>
   )
 }
 
