@@ -16,16 +16,11 @@ function App() {
 
   return (
     <Container maxWidth="sm" style={{ padding: '2rem' }} >
-      <Grid container
-        spacing={5}
-        alignItems='center'
-        alignContent='center'
-        justifyContent='center'
-      >
-        <Grid item xs={12}>
+      <Grid container spacing={5} justifyContent='center' >
+        <Grid item xs={12} >
           <Search />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item>
           <Stack alignItems='center'>
             <User />
           </Stack>
@@ -40,7 +35,7 @@ function App() {
             <RepoInformation />
           </Stack>
         </Grid>
-        <Grid item>
+        <Grid item >
           <Stack direction='row' spacing={3}>
             <CircleButtonIcon>
                 <GitHubIcon fontSize='inherit' />

@@ -2,9 +2,30 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { ThemeProvider, createTheme } from '@mui/material'
+
+
+const headerStyles = {
+  fontWeight: 600
+}
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Raleway',
+    h3: headerStyles,
+    h4: headerStyles,
+    h5: headerStyles,
+    h6: headerStyles,
+    body2: {
+      fontStyle: 'italic'
+    }
+  }
+})
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
 )

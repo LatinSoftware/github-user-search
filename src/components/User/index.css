@@ -1,10 +1,18 @@
 .user-image__container {
-    height: 180px;
-    width: 180px;
-    border: 1px solid black;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     position: relative;
 }
+
+.user__image{
+    width: inherit;
+    height: inherit;
+    clip-path: circle(49% at 50% 50%);
+}
+
+
+
 
 .user-image__container::before,
 .user-image__container::after {
@@ -12,21 +20,20 @@
     position: absolute;
     inset: -0.2rem;
     z-index: 0;
-    background: conic-gradient(
-            from var(--gradient-angle),
+    background: linear-gradient(
+            var(--gradient-angle),
             var(--clr-2) 6%,
             var(--clr-4) 60%,
-            var(--clr-5) 90%,
-            var(--clr-4) 60%,
-            var(--clr-2) 6%
+            var(--clr-5) 90%
             );
     border-radius: inherit;
     animation: rotation 20s linear infinite;
+    z-index: -1;
 }
 
-.user-image__container::after {
-    filter: blur(3.5rem);
-}
+/* .user-image__container::after {
+    filter: blur(50rem);
+} */
 
 @property --gradient-angle {
     syntax: "<angle>";
@@ -45,8 +52,4 @@
 }
 
 
-.user__image{
-    width: inherit;
-    height: inherit;
-    clip-path: circle(49% at 50% 50%);
-}
+
