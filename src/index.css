@@ -14,7 +14,13 @@
   --clr-4: #0077b6;
   --clr-5: #03045e;
   --primary: #3C4143;
-  --secundary: linear-gradient(0deg, #CAF0F8, #CAF0F8), 
-  linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  
+  --secundary: linear-gradient(0deg, #CAF0F8, #CAF0F8),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

@@ -1,12 +1,16 @@
-import { IconButton, styled } from '@mui/material';
+import { IconButton, Tooltip, styled } from '@mui/material';
 
 
 type Props = {
     children: string | JSX.Element | JSX.Element[] | undefined,
-    color?: string
+    color?: string,
+    href?: string,
+    description?: string
+    disabled?: boolean
+
 }
 
-const CircleButtonIcon = ({ children, color }: Props) => {
+const CircleButtonIcon = ({ children, color, disabled, href, description }: Props) => {
 
     const CustomButton = styled(IconButton)({
         width: '4rem',
@@ -23,10 +27,23 @@ const CircleButtonIcon = ({ children, color }: Props) => {
 
     });
 
+    const redirectUser = () => {
+        if (!href) return;
+
+        window.open(
+            href,
+            '_blank'
+        )
+
+
+    }
+
     return (
-        <CustomButton type='button' >
-            {children}
-        </CustomButton>
+        <Tooltip title = {description} arrow>
+            <CustomButton type='button' disabled={disabled} onClick={redirectUser} >
+                {children}
+            </CustomButton>
+        </Tooltip>
     );
 }
 

@@ -1,8 +1,10 @@
 import "./index.css"
-const User = () => {
+const User = ({image}: {image?:string}) => {
+
+
     return (
         <div className="user-image__container">
-            <img src="/images/profile2.jpg" alt="user image" className="user__image" />
+            <img src={image} alt="user image" className="user__image" />
         </div>
     );
 }

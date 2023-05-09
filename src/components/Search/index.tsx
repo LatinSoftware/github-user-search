@@ -2,6 +2,9 @@ import { IconButton, InputBase, styled, Stack } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 import './index.css'
+import { useMachine } from "@xstate/react";
+import { GitHubUserMachine } from "../../machines/GitHubUserFetchMachine";
+import React, { SetStateAction } from "react";
 
 const SearchInput = (styled(InputBase))({
     width: '90%',
@@ -21,19 +24,32 @@ const CustomButton = styled(IconButton)({
     backgroundColor: 'white',
     boxShadow: '0 0 8px 0 rgba(50, 50, 50, 0.15);',
     transition: '250ms',
+    '&:hover': {
+        backgroundColor: 'white'
+    }
 });
 
 
-const Search = () => {
+const Search = ({ value, setValue, onClick }: {
+    value: string,
+    setValue: React.Dispatch<SetStateAction<string>>
+    onClick: React.MouseEventHandler<HTMLButtonElement>
+}) => {
+
+    const handleOnInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        setValue(value)
+    }
+
     return (
         <Stack
             position='relative'
             direction='row'
             alignContent='center'
             alignItems='center'>
-            <SearchInput placeholder="Search..." />
+            <SearchInput placeholder="Search..." value={value} onChange={handleOnInputChange} />
             <div className="circle" />
-            <CustomButton>
+            <CustomButton onClick={onClick} >
                 <SearchIcon fontSize="inherit" />
             </CustomButton>
         </Stack>

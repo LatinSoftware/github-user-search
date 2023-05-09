@@ -6,7 +6,8 @@ import { ThemeProvider, createTheme } from '@mui/material'
 
 
 const headerStyles = {
-  fontWeight: 600
+  fontWeight: 600,
+  color: 'var(--primary)'
 }
 
 const theme = createTheme({
@@ -17,7 +18,8 @@ const theme = createTheme({
     h5: headerStyles,
     h6: headerStyles,
     body2: {
-      fontStyle: 'italic'
+      fontStyle: 'italic',
+      color: 'var(--primary)'
     }
   }
 })

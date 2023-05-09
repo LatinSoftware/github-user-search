@@ -19,7 +19,6 @@
     content: "";
     position: absolute;
     inset: -0.2rem;
-    z-index: 0;
     background: linear-gradient(
             var(--gradient-angle),
             var(--clr-2) 6%,

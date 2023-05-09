@@ -1,4 +1,11 @@
-
 body {
     background: var(--secundary);
+}
+
+.upper-background__color {
+    width: 100vw;
+    height: 33vh;
+    position: absolute;
+    background: var(--primary);
+    z-index: -1;
 }
