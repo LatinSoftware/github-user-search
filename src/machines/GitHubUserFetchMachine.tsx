@@ -44,7 +44,7 @@ const fetchUser = async (value: string): Promise<GitHubUserType> => {
     return data;
 }
 
-const setInputValue = assign((context, event: events) => {
+const setInputValue = assign(( event: events) => {
     return {
         searchValue: event.searchValue
     }
@@ -69,7 +69,7 @@ const GitHubUserMachine = createMachine<contextType, events, states>({
                 onDone: [
                     {
                         target: "sucess",
-                        actions: assign((context, event) => {
+                        actions: assign((_context, event) => {
                             return {
                                 user: event.data,
                             }

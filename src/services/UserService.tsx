@@ -1,5 +1,5 @@
 
-import { GITHUB_API_KEY, GITHUB_API_URL } from "../constant/indext";
+import { GITHUB_API_URL } from "../constant/indext";
 import { GitHubUserType } from "../types";
 
 
@@ -17,11 +17,7 @@ async function getUser(username: string | null): Promise<GitHubUserType> {
 
     if(username == null) throw new Error("cannot send null value");
 
-    const response = await fetch(GITHUB_API_URL + username, {
-        headers: {
-            "Authorization": `Bearer ${GITHUB_API_KEY}`
-        }
-    })
+    const response = await fetch(GITHUB_API_URL + username)
 
     const data = await response.json();
 

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Skeleton, Stack } from '@mui/material'
+import { Box, Container, Grid, Skeleton, Stack } from '@mui/material'
 import { Search } from './components/Search'
 import { RepoInformation } from './components/RepoInformation'
 import { CircleButtonIcon } from './components/CircleButtonIcon'

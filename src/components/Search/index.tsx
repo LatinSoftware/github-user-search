@@ -2,8 +2,6 @@ import { IconButton, InputBase, styled, Stack } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 import './index.css'
-import { useMachine } from "@xstate/react";
-import { GitHubUserMachine } from "../../machines/GitHubUserFetchMachine";
 import React, { SetStateAction } from "react";
 
 const SearchInput = (styled(InputBase))({
