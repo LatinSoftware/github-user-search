@@ -4,6 +4,9 @@ import { RepoInformation } from './components/RepoInformation'
 import { CircleButtonIcon } from './components/CircleButtonIcon'
 import { Detail } from './components/Detail'
 import { GitHubUserMachine } from './machines/GitHubUserFetchMachine'
+import { useMachine } from '@xstate/react'
+import { Fragment, useState } from 'react'
+
 import User from './components/User'
 
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -12,8 +15,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 import './App.css'
-import { Fragment, useState } from 'react'
-import { useMachine } from '@xstate/react'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
   const [value, setValue] = useState('');
 
   const handleButton = () => {
-    send('FILL', { searchValue: value })
+    send({ type: 'FILL', searchValue: value })
     setValue('')
   }
 
@@ -35,7 +36,7 @@ function App() {
         <Grid container
           spacing={5}
           justifyContent='center'
-          
+
         >
           <Grid item xs={12} >
             <Search value={value} setValue={setValue} onClick={handleButton} />
@@ -70,7 +71,7 @@ function App() {
               {
                 !state.matches('loading') ?
                   <Fragment>
-                    <RepoInformation name='Repos' qty={user !== undefined ? user?.public_repos + user?.total_private_repos : 0} />
+                    <RepoInformation name='Repos' qty={user !== undefined ? user?.public_repos : 0} />
                     <RepoInformation name='Followers' qty={user !== undefined ? user?.followers : 0} />
                     <RepoInformation name='Following' qty={user !== undefined ? user?.following : 0} />
                   </Fragment>

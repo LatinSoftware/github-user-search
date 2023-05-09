@@ -27,6 +27,7 @@ const searchValid = (context: contextType) => {
 
 
 const fetchUser = async (value: string): Promise<GitHubUserType> => {
+    
     let data = {} as GitHubUserType
 
     if (value == 'octocat') {
@@ -44,7 +45,7 @@ const fetchUser = async (value: string): Promise<GitHubUserType> => {
     return data;
 }
 
-const setInputValue = assign(( event: events) => {
+const setInputValue = assign(( _context:contextType, event: events) => {
     return {
         searchValue: event.searchValue
     }
@@ -88,9 +89,7 @@ const GitHubUserMachine = createMachine<contextType, events, states>({
             on: {
                 FILL: {
                     target: "filling",
-                    actions: [
-                        setInputValue,
-                    ]
+                    actions: setInputValue,
                 },
 
             },
@@ -100,9 +99,7 @@ const GitHubUserMachine = createMachine<contextType, events, states>({
             on: {
                 FILL: {
                     target: "filling",
-                    actions: [
-                        setInputValue,
-                    ]
+                    actions: setInputValue,
                 },
             },
         },

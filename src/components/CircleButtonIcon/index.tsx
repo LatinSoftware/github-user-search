@@ -40,9 +40,11 @@ const CircleButtonIcon = ({ children, color, disabled, href, description }: Prop
 
     return (
         <Tooltip title = {description} arrow>
-            <CustomButton type='button' disabled={disabled} onClick={redirectUser} >
-                {children}
-            </CustomButton>
+            <span>
+                <CustomButton type='button' disabled={disabled} onClick={redirectUser} >
+                    {children}
+                </CustomButton>
+            </span>
         </Tooltip>
     );
 }
